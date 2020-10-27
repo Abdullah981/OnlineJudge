@@ -122,6 +122,20 @@ string to_lower(char s[], int n)
     return st;
 }
 
+void seive(int n)
+{
+    bool arr[n+1]; arr[0] = arr[1] = true; int m = (int)ceil(sqrt(n));
+    for(int i=3; i<=m; i+=2)
+    {
+        if(arr[i]==false && i*i<=n)
+        {
+            for(int j=i*i; j<=n; j+=2*i)
+            {
+                arr[j] = true;
+            }
+        }
+    }
+}
 int main()
 {
     return 0;
