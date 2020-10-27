@@ -136,6 +136,15 @@ void seive(int n)
         }
     }
 }
+
+bool is_palindrome(int a[], int left, int right)
+{
+    while(left<=right)
+    {
+        if(a[left]!=a[right]) { return false; } ++left; --right;
+    }
+    return true;
+}
 int main()
 {
     return 0;
