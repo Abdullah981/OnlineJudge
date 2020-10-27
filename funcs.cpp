@@ -110,7 +110,18 @@ string to_lower(string s)
     transform(st.begin(), st.end(), st.begin(), ::tolower); 
     return st;
 }
- 
+
+string to_lower(char s[], int n)
+{
+    string st="";
+    for(int i=0;i<n;++i)
+    {
+        if(s[i]>='A' && s[i]<='Z') { s[i]+= 32; }
+        st+= s[i];
+    }
+    return st;
+}
+
 int main()
 {
     return 0;
