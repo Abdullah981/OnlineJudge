@@ -24,58 +24,80 @@
 using namespace std;
 
 
-string to_lower(string s)
-{
-    //transform(s.begin(), s.end(), s.begin(), ::tolower); 
-    
-    for(int i=0;i<s.length();++i)
-    {
-        if(s[i]>='A' && s[i]<='Z') { s[i]+= 32; }
-    }
-    return s;
-}
-
 int main()
 {
     fast;
     clr;
     
-    string s;
-    vector<string> dict;
-    while(1)
-    {
-        getline(cin, s);
-        if(s=="") { break; }
-        
-        s = to_lower(s);
-        int left= -1, right= -1;
-        for(int i=0;i<s.length();++i)
+    ulli n;
+    lli x;
+    i2(n,x);
+    
+    lli a[n]; lli cache[n];
+    
+    for(ulli i=0;i<n;++i) 
+    { 
+        i1(a[i]);
+        if(i==0)
         {
-            if( (s[i]>='A' && s[i]<='Z') || (s[i]>='a' && s[i]<='z') ) { if(left==-1) { left=i; } }
-            else 
-            { 
-                right= i-1;
-                string st = s.substr(left, (right-left)+1);
-                dict.push_back(st);
-                left=-1;
-            }
-            
-            if(left!=-1 && i==s.length()-1)
-            {
-                right= i;
-                string st = s.substr(left, (right-left)+1);
-                dict.push_back(st);
-                left=-1;
-            }
+            cache[i] = a[i];
         }
-            
+        else if(i>0)
+        {
+            cache[i] = a[i] + cache[i-1];
+        }
     }
     
-    sort(dict.begin(), dict.end());
-        
-    for(int i=0;i<dict.size();++i)
+    lli mx_sub = 0, left=-1, right=-1;
+    
+    bool mul = false;
+    for(ulli i=0;i<n;++i)
     {
-        ol(dict[i]);
+        /*without multiplying x*/
+        /*just one element*/
+        if(a[i]>mx_sub) { left=i; right=i; mx_sub = a[i]; mul = false; }
+        /*from 0 to i*/
+        else if(cache[i]>mx_sub) { left=0, right=i; mx_sub = cache[i]; mul = false; }
+        /*from i to n-1*/
+        else if(i>0 && cache[n-1]-cache[i-1]>mx_sub) { left=i, right=n-1; mx_sub = cache[n-1]-cache[i-1]; mul = false; }
+        else if(i==0 && cache[n-1]>mx_sub) { left=0; right=n-1; mx_sub = cache[n-1]; mul = false; }
+        
+        /*multiplying x*/
+        /*just one element*/
+        if(a[i]*x>mx_sub) { left=i; right=i; mx_sub = a[i]*x; mul = true; }
+        /*from 0 to i*/
+        else if(cache[i]*x>mx_sub) { left=0, right=i; mx_sub = cache[i]*x; mul = true; }
+        /*from i to n-1*/
+        else if(i>0 && (cache[n-1]-cache[i-1])*x>mx_sub) { left=i, right=n-1; mx_sub = (cache[n-1]-cache[i-1])*x; mul = true; }
+        else if(i==0 && cache[n-1]*x>mx_sub) { left=0; right=n-1; mx_sub = cache[n-1]*x; mul = true; }
+        
+    }
+    
+    if(mul)
+    {s
+        mx_sub = 0;
+        for(lli i=left;i<=right;++i) { a[i]*=x; }
+        
+        cache[0] = a[0];
+        for(lli i=1;i<n;++i) { cache[i] = a[i]+cache[i-1]; }
+        
+        for(ulli i=0;i<n;++i)
+        {
+            /*without multiplying x*/
+            /*just one element*/
+            if(a[i]>mx_sub) { left=i; right=i; mx_sub = a[i]; }
+            /*from 0 to i*/
+            else if(cache[i]>mx_sub) { left=0, right=i; mx_sub = cache[i]; }
+            /*from i to n-1*/
+            else if(i>0 && cache[n-1]-cache[i-1]>mx_sub) { left=i, right=n-1; mx_sub = cache[n-1]-cache[i-1]; }
+            else if(i==0 && cache[n-1]>mx_sub) { left=0; right=n-1; mx_sub = cache[n-1]; }
+        }
+        ol(mx_sub);
+        
+    }
+    else
+    {
+        ol(mx_sub);
     }
     return 0;
 
