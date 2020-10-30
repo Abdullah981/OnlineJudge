@@ -121,7 +121,22 @@ string to_lower(char s[], int n)
     }
     return st;
 }
-
+string removeHabijabi_toLower(string str)
+{
+    string newstr="";
+    for(int i=0;i<str.length();++i)
+    {
+        if( (str[i]>='a' && str[i]<='z') || (str[i]>='A' && str[i]<='Z') || str[i]==' ' ) 
+        { 
+            if((str[i]>='A' && str[i]<='Z'))
+            {
+                newstr+= (str[i]+32); 
+            }
+            else { newstr+= str[i];  }
+        }        
+    }
+    return newstr;
+}
 void seive(int n)
 {
     bool arr[n+1]; arr[0] = arr[1] = true; int m = (int)ceil(sqrt(n));
