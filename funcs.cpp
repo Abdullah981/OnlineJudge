@@ -137,6 +137,24 @@ string removeHabijabi_toLower(string str)
     }
     return newstr;
 }
+bool checkBracket(string s)
+{
+    if(s[0]==')' || s[0]=='}' || s[0]==']') { return false; }
+    
+    stack<char> stck;
+    for(int i=0;i<s.size();++i)
+    {
+        if(s[i]=='(' || s[i]=='{' || s[i]=='[') { stck.push(s[i]); }
+        else if(s[i]==')' && !stck.empty() && stck.top()=='(') { stck.pop(); }
+        else if(s[i]=='}' && !stck.empty() && stck.top()=='{') { stck.pop(); }
+        else if(s[i]==']' && !stck.empty() && stck.top()=='[') { stck.pop(); }
+    }
+    
+    if(stck.empty()) { return true; }
+    else { return false; }
+
+}
+
 void seive(int n)
 {
     bool arr[n+1]; arr[0] = arr[1] = true; int m = (int)ceil(sqrt(n));
