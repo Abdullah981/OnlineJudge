@@ -63,7 +63,36 @@ ulli lcm(ulli a, ulli b)
 {
     return (a / gdc(a,b)) * b;
 }
-
+string primeFactors(lli n)
+{
+    lli upto = (lli)ceil(sqrt(n));
+    lli divideBy;
+    string s="";
+    lli c=0;
+    
+    while(n%2==0)
+    {
+        s+= "2 x ";
+        n/=2;
+        ++c;
+    }
+    for(divideBy = 3; divideBy<=upto; divideBy+=2)
+    {
+        if(n % divideBy==0)
+        {
+            ++c;
+            while(n % divideBy==0)
+            {
+                n/=divideBy;
+                s+= to_string(divideBy) + " x ";
+            }
+        }
+    }
+    if(n!=1) { s+= to_string(n); }
+    else { s.erase(s.begin()+s.size()-3, s.end()); }
+    if(c==0) { return to_string(n); }
+    return s;
+}
 int fact(int n)
 {
     if(n<=1) return 1;
