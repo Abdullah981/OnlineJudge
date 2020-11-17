@@ -93,6 +93,44 @@ string primeFactors(lli n)
     if(c==0) { return to_string(n); }
     return s;
 }
+lli num_of_dist_pFact(lli num)
+{
+    lli n = 1000000;
+    bool p[n+1]; for(int i=0;i<=n;++i) { p[i]=false; } 
+    p[0] = p[1] = true; int m = (int)ceil(sqrt(n));
+    for(int i=3; i<=m; i+=2)
+    {
+        if(p[i]==false && i*i<=n)
+        {
+            for(int j=i*i; j<=n; j+=2*i)
+            {
+                p[j] = true;
+            }
+        }
+    }
+    lli upto = (lli)ceil(sqrt(num));
+    lli divideBy;
+    set<lli> fact;
+    
+    while(num%2==0)
+    {
+        num/=2;
+        fact.insert(2);
+    }
+    for(divideBy = 3; divideBy<=upto; divideBy+=2)
+    {
+        if(num % divideBy==0 && !p[divideBy])
+        {
+            fact.insert(divideBy);
+            while(num % divideBy==0)
+            {
+                num/=divideBy;
+            }
+        }
+    }
+    if(!p[num]) { fact.insert(num); }
+    return fact.size();
+}
 int fact(int n)
 {
     if(n<=1) return 1;
