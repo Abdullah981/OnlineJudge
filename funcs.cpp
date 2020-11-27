@@ -236,7 +236,20 @@ void seive(int n)
         }
     }
 }
-
+string substring(string s, int l, int r)
+{
+    string st="";
+    for(int i=l;i<=r;++i) { st+= s[i]; } return st;
+}
+bool is_palindrome(string s)
+{
+    int left=0, right=s.length()-1;
+    while(left<=right)
+    {
+        if(s[left]!=s[right]) { return false; } ++left; --right;
+    }
+    return true;
+}
 bool is_palindrome(int a[], int left, int right)
 {
     while(left<=right)
