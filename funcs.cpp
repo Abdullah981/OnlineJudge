@@ -142,7 +142,16 @@ int fact(int n)
     }
     return res;
 }
-
+ulli trailingzero(ulli n)
+{
+    ulli count=0;
+    
+    for(ulli i=5;n/i>=1;i*=5)
+    {
+        count+= n/i;
+    }
+    return count;
+}
 int nCr(int n, int r)
 {
     return fact(n) / (fact(r) * fact(n-r));
@@ -258,6 +267,35 @@ bool is_palindrome(int a[], int left, int right)
     }
     return true;
 }
+string timeConversion(string s) 
+{
+    if(s[s.length()-2]=='P')
+    {
+        if(s[0]=='1' && s[1]=='2')
+        {
+            s.erase(s.size()-2, 2);
+        }
+        else
+        {
+            int h = stoi(s.substr(0,2));
+            h+=12;
+            string hs = to_string(h);
+            s[0] = hs[0]; s[1] = hs[1];
+            s.erase(s.size()-2, 2);
+        }
+    }
+    else
+    {
+        if(s[0]=='1' && s[1]=='2')
+        {
+            s[0]='0'; s[1]='0';
+            s.erase(s.size()-2, 2);
+        }
+        else { s.erase(s.size()-2, 2); }
+    }
+    return s;
+}
+
 int main()
 {
     return 0;
