@@ -61,7 +61,7 @@ ulli gcd(ulli a, ulli b)
  
 ulli lcm(ulli a, ulli b)
 {
-    return (a / gdc(a,b)) * b;
+    return (a / gcd(a,b)) * b;
 }
 string primeFactors(lli n)
 {
@@ -295,7 +295,23 @@ string timeConversion(string s)
     }
     return s;
 }
-
+vector<int> str_to_vecInt(string s)
+{
+    vector<int> num;
+    string token = "";
+    
+    for(int i=0;i<s.length();++i)
+    {
+        if(s[i]==' ') 
+        {
+            int n = stoi(token); num.push_back(n); token = "";
+        }
+        else { token+= s[i]; }
+    }
+    int n = stoi(token); num.push_back(n);
+    
+    return num;
+}
 int main()
 {
     return 0;
