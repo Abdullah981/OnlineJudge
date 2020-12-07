@@ -12,9 +12,9 @@
 #define i5(w,x,y,z,a) cin >> w >> x >> y >> z >> a
 #define min_pq(x) priority_queue<x, vector<x>, greater<x> >
 #define max_pq(x) priority_queue<x>
-#define tst clock_t start = clock(); 
-#define ten clock_t stop = clock();
-#define tp double duration = double(stop-start) / double(CLOCKS_PER_SEC); printf("%.10f\n",duration);
+#define t_st clock_t start = clock(); 
+#define t_en clock_t stop = clock();
+#define t_p double duration = double(stop-start) / double(CLOCKS_PER_SEC); printf("%.10f\n",duration);
 
 #define os(x) cout << x << " "
 #define o(x) cout << x
@@ -28,61 +28,69 @@
 
 using namespace std;
 
-
-lli trailingzero(lli n)
+vector<lli> str_to_vecInt(string line)
 {
-    lli count=0;
+    vector<lli> n;
+    string s="";
     
-    for(lli i=5;n/i>=1;i*=5)
+    for(int i=0;i<line.length();++i)
+    {
+        if(line[i]==' ')
+        {
+            lli x = stoi(s); n.push_back(x); s = "";
+        }
+        else { s+= line[i]; }
+    }
+    lli x = stoi(s); n.push_back(x);
+    return n;
+}
+
+lli gcd(lli a, lli b)
+{
+    return b == 0 ? a : gcd(b, a % b);
+}
+ulli trailingzero(ulli n)
+{
+    ulli count=0;
+    
+    for(ulli i=5;n/i>=1;i*=5)
     {
         count+= n/i;
     }
     return count;
-}
-string timeConversion(string s) 
-{
-    if(s[s.length()-2]=='P')
-    {
-        if(s[0]=='1' && s[1]=='2')
-        {
-            s.erase(s.size()-2, 2);
-        }
-        else
-        {
-            int h = stoi(s.substr(0,2));
-            h+=12;
-            string hs = to_string(h);
-            s[0] = hs[0]; s[1] = hs[1];
-            s.erase(s.size()-2, 2);
-        }
-    }
-    else
-    {
-        if(s[0]=='1' && s[1]=='2')
-        {
-            s[0]='0'; s[1]='0';
-            s.erase(s.size()-2, 2);
-        }
-        else { s.erase(s.size()-2, 2); }
-    }
-    return s;
 }
 
 int main()
 {
     fast;
     clr;
-    //tst
-    //ten
-    //tp
+    freopen("input.txt", "r", stdin);
     
-    ol(timeConversion("02:05:45PM"));
+    int T;
+    i1(T);
+    string s;
+    cin.ignore();
+    
+    while(T--)
+    {
+        int n;
+        vector<int> num;
+        while(1) 
+        {
+            i1(n);
+            char c = cin.get();
+            num.push_back(n); 
+            if(c==13) { break; }
+        }
+        for(int i=0;i<num.size();++i) { os(num[i]); } ol("");
+    }
     
     return 0;
 }
 
 //getline(cin,s1); // string input until end of line
 //getc(stdin); // reads a single character, don't need to press enter. so basically reads '\n' as input
+//cin.get() // Reads a single character, don't need to press enter, better than getc;
 //read.clear();//resetting stuffs
 //read.seekg(0,ios::beg);//going back to the start of the file
  
