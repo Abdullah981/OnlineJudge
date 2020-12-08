@@ -34,6 +34,10 @@ int main()
     clr;
     int N;
     
+    vector<int> a = {1,2,5,8,10,15,16,20};
+    auto it = upper_bound(a.begin(), a.end(), 10);
+    ol((*it));
+    /*
     while(1)
     {
         i1(N);
@@ -55,7 +59,7 @@ int main()
         }
         ol(ways);
     }
-    
+    */
     return 0;
 }
 

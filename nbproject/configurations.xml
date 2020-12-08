@@ -14,11 +14,8 @@
                    projectFiles="true">
       <itemPath>ALL.cpp</itemPath>
       <itemPath>HackerRank_Math.cpp</itemPath>
-      <itemPath>Other.cpp</itemPath>
-      <itemPath>Test.cpp</itemPath>
       <itemPath>funcs.cpp</itemPath>
       <itemPath>genTest.cpp</itemPath>
-      <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -46,15 +43,9 @@
       </item>
       <item path="HackerRank_Math.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Other.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Test.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="funcs.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="genTest.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -81,15 +72,9 @@
       </item>
       <item path="HackerRank_Math.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Other.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Test.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="funcs.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="genTest.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

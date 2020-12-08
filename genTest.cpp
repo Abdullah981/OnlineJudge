@@ -27,7 +27,7 @@
 #define pi 3.1415926535897932384626433832795
 
 using namespace std;
-
+/*
 int main()
 {
     fast;
@@ -36,7 +36,7 @@ int main()
     
     return 0;
 }
-
+*/
 //getline(cin,s1); // string input until end of line
 //getc(stdin); // reads a single character, don't need to press enter. so basically reads '\n' as input
 //cin.get() // Reads a single character, don't need to press enter, better than getc;
