@@ -32,29 +32,7 @@ int main()
 {
     fast;
     clr;
-    int N;
     
-    while(1)
-    {
-        i1(N);
-        if(N==0) { break; }
-        
-        vector<li> stck(N);
-        for(int i=0;i<N;++i) { i1(stck[i]); }
-        sort(stck.begin(), stck.end());
-        li ways=0;
-        for(li sum=N-1;sum>1;--sum)
-        {
-            for(li sec=sum-1;sec>0;--sec)
-            {
-                for(li fst=sec-1;fst>=0;--fst)
-                {
-                    if(stck[fst]+stck[sec]<stck[sum]) { ways+= fst+1; break; }
-                }
-            }
-        }
-        ol(ways);
-    }
     
     return 0;
 }
@@ -67,6 +45,3 @@ int main()
  
 //freopen("input.txt", "r", stdin); 
 //freopen("output.txt", "w", stdout);
-
-//set.lower_bound(x) returns first element(iterator) e where e>=x
-//set.upper_bound(x) return first element(iterator) e where e>x

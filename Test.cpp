@@ -1,5 +1,5 @@
 //#pragma GCC optimize("Ofast")
-/**
+
 #include <bits/stdc++.h>
 
 #define fast ios_base::sync_with_stdio(false)
@@ -22,24 +22,29 @@
 
 
 using namespace std;
-
-
+/*
 int main()
 {
     fast;
     clr;
     
-    string s;
-    getline(cin, s);
-    
-    ol(s);
-    
+    int t, c=1;
+    i1(t);
+    while(t--)
+    {
+        vector<int> a(3);
+        for(int i=0;i<3;++i) { i1(a[i]); }
+        sort(a.begin(), a.end());
+        printf("Case %d: %d\n", c, a[1]); ++c;
+    }
     
     return 0;
 
 }
+
 //getline(cin,s1); // string input until end of line
 //read.clear();//resetting stuffs
 //read.seekg(0,ios::beg);//going back to the start of the file
+//freopen("input.txt", "r", stdin); 
+//freopen("output.txt", "w", stdout);
 */
- 

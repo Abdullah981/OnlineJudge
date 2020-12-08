@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Other.o \
 	${OBJECTDIR}/Test.o \
 	${OBJECTDIR}/funcs.o \
+	${OBJECTDIR}/genTest.o \
 	${OBJECTDIR}/main.o
 
 
@@ -91,6 +92,11 @@ ${OBJECTDIR}/funcs.o: funcs.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/funcs.o funcs.cpp
+
+${OBJECTDIR}/genTest.o: genTest.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/genTest.o genTest.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

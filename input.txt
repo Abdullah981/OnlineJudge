@@ -1,5 +1,6 @@
-heck
-yeah
-buddy
-heck
-you
+3
+10 20 30 40
+7 5 12
+15 125 25
+
+
