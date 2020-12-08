@@ -26,7 +26,17 @@
 #define li long int //32
 #define pi 3.1415926535897932384626433832795
 
+
 using namespace std;
+
+vector<int> getRandom(int low, int high, int size)
+{
+    vector<int> ran(size);
+    
+    for(int i=0;i<size;++i) { ran[i] = (rand() % ((high-low)+1)) + low; }
+    return ran;
+}
+
 /*
 int main()
 {
